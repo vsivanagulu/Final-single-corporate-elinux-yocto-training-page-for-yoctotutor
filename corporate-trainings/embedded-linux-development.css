@@ -1,0 +1,993 @@
+
+/* Embedded Linux Development Page Styles */
+
+/* General Layout */
+.elinux-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .elinux-section {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+}
+
+.elinux-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+    .elinux-container {
+        padding: 0 1.5rem;
+    }
+}
+
+.elinux-bg-white { background-color: white; }
+.elinux-bg-light { background-color: #f9fafb; }
+.elinux-bg-blue { background-color: #eff6ff; }
+
+/* Section Title Component */
+.elinux-section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.elinux-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.875rem;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+@media (min-width: 768px) {
+    .elinux-title { font-size: 2.25rem; }
+}
+
+.elinux-title.dark { color: #1a237e; }
+.elinux-title.white { color: white; }
+
+.elinux-title-underline {
+    position: absolute;
+    bottom: -0.625rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5rem;
+    height: 0.25rem;
+    background: linear-gradient(135deg, #ff6f00 0%, #ffa726 100%);
+    border-radius: 9999px;
+}
+
+.elinux-subtitle {
+    margin-top: 1.5rem;
+    font-size: 1.125rem;
+}
+
+.elinux-subtitle.dark { color: #666666; }
+.elinux-subtitle.white { color: rgba(255, 255, 255, 0.9); }
+
+/* Hero Section */
+.elinux-hero {
+    position: relative;
+    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #00acc1 100%);
+    color: white;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .elinux-hero {
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+    }
+}
+
+.elinux-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: #1a237e;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.elinux-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.elinux-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.elinux-hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    animation: pulse-glow 3s infinite ease-in-out;
+}
+
+@media (min-width: 768px) {
+    .elinux-hero-title {
+        font-size: 3.75rem;
+    }
+}
+
+.elinux-hero-subtitle {
+    margin-top: 1.5rem;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+@media (min-width: 768px) {
+    .elinux-hero-subtitle {
+        font-size: 1.25rem;
+    }
+}
+
+.elinux-cta-container {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.elinux-cta-btn {
+    background: linear-gradient(135deg, #ff6f00 0%, #ffa726 100%);
+    color: white;
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border-radius: 9999px;
+    font-size: 1.125rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.elinux-cta-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.elinux-hero-cards {
+    margin-top: 4rem;
+    max-width: 56rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    gap: 2rem;
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .elinux-hero-cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.elinux-info-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s;
+}
+
+.elinux-info-card:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.elinux-icon-wrapper {
+    flex-shrink: 0;
+    width: 4rem;
+    height: 4rem;
+    background-color: #ff6f00;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.elinux-card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: white;
+}
+
+.elinux-card-text {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Navigation Menu */
+.elinux-nav-wrapper {
+    transition: all 0.3s ease;
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 40;
+    position: relative;
+}
+
+.elinux-nav-wrapper.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.elinux-nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+}
+
+.elinux-nav-title {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #1a237e;
+}
+
+.elinux-nav-links {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .elinux-nav-links {
+        display: flex;
+    }
+}
+
+.elinux-nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.elinux-nav-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #333333;
+    transition: color 0.3s;
+    position: relative;
+    padding-bottom: 0.25rem;
+    white-space: nowrap;
+}
+
+.elinux-nav-link:hover {
+    color: #0d47a1;
+}
+
+.elinux-nav-link.active {
+    color: #1a237e;
+    font-weight: 700;
+}
+
+.elinux-nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #ff6f00;
+    border-radius: 9999px;
+}
+
+.elinux-nav-cta {
+    background: linear-gradient(135deg, #ff6f00 0%, #ffa726 100%);
+    color: white;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    transition: all 0.3s;
+}
+
+.elinux-nav-cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+    .elinux-nav-cta {
+        margin-left: 1rem;
+    }
+}
+
+.elinux-nav-mobile-btn {
+    display: block;
+    padding: 0.5rem;
+    color: #1a237e;
+}
+
+@media (min-width: 768px) {
+    .elinux-nav-mobile-btn {
+        display: none;
+    }
+}
+
+.elinux-hamburger {
+    width: 1.5rem;
+    height: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.elinux-hamburger .line {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #1a237e;
+    transition: all 0.3s;
+}
+
+.elinux-hamburger .rotate-down {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.elinux-hamburger .fade-out {
+    opacity: 0;
+}
+
+.elinux-hamburger .rotate-up {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* About Section */
+.elinux-grid-2 {
+    display: grid;
+    gap: 3rem;
+}
+
+@media (min-width: 768px) {
+    .elinux-grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.elinux-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: #666666;
+    font-size: 1.125rem;
+    line-height: 1.75;
+}
+
+.elinux-highlights-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .elinux-highlights-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.elinux-highlight-card {
+    background-color: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border-left: 4px solid #00acc1;
+    transition: all 0.3s ease;
+}
+
+.elinux-highlight-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: translateX(0.25rem);
+}
+
+.elinux-highlight-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a237e;
+    margin-bottom: 0.5rem;
+}
+
+.elinux-highlight-desc {
+    color: #666666;
+}
+
+/* Program Details */
+.elinux-centered-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.elinux-section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #1a237e;
+}
+
+.elinux-details-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f3f4f6;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+
+.elinux-details-card:hover {
+    border-color: #00acc1;
+}
+
+.elinux-details-card.accent-border:hover {
+    border-color: #ff6f00;
+}
+
+.elinux-details-icon-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    opacity: 0.1;
+    color: #1a237e;
+}
+
+.elinux-details-card.accent-border .elinux-details-icon-bg {
+    color: #ff6f00;
+}
+
+.elinux-details-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a237e;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.elinux-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.elinux-details-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.elinux-details-bullet {
+    margin-top: 0.25rem;
+    background-color: #dbeafe;
+    padding: 0.25rem;
+    border-radius: 9999px;
+    color: #1a237e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.elinux-details-icon-sm {
+    width: 1rem;
+    height: 1rem;
+    color: #0d47a1;
+}
+
+.elinux-details-label {
+    display: block;
+    font-weight: 700;
+    color: #111827;
+}
+
+.elinux-details-value {
+    color: #4b5563;
+}
+
+.elinux-prereq-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background-color: #fff7ed;
+    border-radius: 0.5rem;
+    color: #1f2937;
+}
+
+.elinux-prereq-text {
+    font-weight: 500;
+}
+
+.elinux-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: #ff6f00;
+    flex-shrink: 0;
+}
+
+/* Syllabus Timeline */
+.elinux-timeline-container {
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.elinux-timeline-item {
+    position: relative;
+    padding-left: 3rem;
+    padding-bottom: 2rem;
+}
+
+.elinux-timeline-line {
+    position: absolute;
+    left: 1.125rem;
+    top: 1rem;
+    bottom: 0;
+    width: 2px;
+    background-color: #00acc1;
+}
+
+.elinux-timeline-marker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #00acc1 100%);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.elinux-syllabus-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+
+.elinux-syllabus-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.elinux-syllabus-btn {
+    width: 100%;
+    padding: 1.5rem;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.elinux-syllabus-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a237e;
+    flex: 1;
+}
+
+.elinux-syllabus-meta {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.elinux-badge-blue {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #dbeafe;
+    color: #0d47a1;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+}
+
+.elinux-chevron {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #00acc1;
+    transition: transform 0.3s;
+}
+
+.elinux-chevron.rotate {
+    transform: rotate(180deg);
+}
+
+.elinux-accordion-grid {
+    display: grid;
+    transition: grid-template-rows 0.25s ease-in-out;
+}
+
+.elinux-accordion-grid.open {
+    grid-template-rows: 1fr;
+}
+
+.elinux-accordion-grid.closed {
+    grid-template-rows: 0fr;
+}
+
+.elinux-accordion-inner {
+    overflow: hidden;
+}
+
+.elinux-accordion-content {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    transition-delay: 100ms;
+}
+
+.elinux-accordion-content.open {
+    opacity: 1;
+}
+
+.elinux-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.elinux-badge-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #00acc1;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+}
+
+.elinux-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.elinux-list-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.elinux-list-bullet {
+    color: #00acc1;
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+.elinux-list-text {
+    color: #666666;
+}
+
+/* Pricing */
+.elinux-pricing-grid {
+    max-width: 56rem;
+    margin: 0 auto;
+    display: grid;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .elinux-pricing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.elinux-pricing-card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e5e7eb;
+}
+
+.elinux-pricing-card:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: translateY(-0.5rem);
+}
+
+.elinux-pricing-card.highlight {
+    border-color: #00acc1;
+}
+
+.elinux-pricing-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0d47a1;
+    margin-bottom: 1rem;
+}
+
+.elinux-pricing-amount-box {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.elinux-price-tag {
+    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #00acc1 100%);
+    color: white;
+    font-weight: 700;
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.elinux-pricing-amount {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #ff6f00;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.elinux-pricing-features {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+    list-style: none;
+    padding: 0;
+}
+
+.elinux-pricing-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.elinux-icon-check {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #00acc1;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+.elinux-pricing-text {
+    color: #333333;
+}
+
+.elinux-pricing-cta-mt {
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* Testimonials */
+.elinux-grid-3 {
+    display: grid;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .elinux-grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.elinux-testimonial-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f3f4f6;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.elinux-testimonial-card:hover {
+    transform: translateY(-0.5rem);
+}
+
+.elinux-quote-icon {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 3.75rem;
+    color: #f3f4f6;
+    font-family: serif;
+    line-height: 1;
+}
+
+.elinux-stars {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+    color: #ff6f00; /* accent */
+}
+
+.elinux-testimonial-text {
+    color: #666666;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    position: relative;
+    z-index: 10;
+    font-size: 1.125rem;
+    line-height: 1.625;
+}
+
+.elinux-testimonial-author {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.elinux-author-avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    background: linear-gradient(to bottom right, #1a237e, #0d47a1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.elinux-author-name {
+    font-weight: 700;
+    color: #333333;
+    display: block;
+}
+
+.elinux-author-role {
+    font-size: 0.75rem;
+    color: #00acc1; /* secondary */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    display: block;
+}
+
+.elinux-author-company {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-top: 0.125rem;
+    display: block;
+}
+
+/* FAQ */
+.elinux-faq-stack {
+    max-width: 48rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.elinux-faq-item {
+    background-color: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.elinux-faq-item:hover {
+    border-color: #00acc1;
+}
+
+.elinux-faq-btn {
+    width: 100%;
+    padding: 1.5rem;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transition: background-color 0.2s;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.elinux-faq-btn:hover {
+    background-color: #f9fafb;
+}
+
+.elinux-faq-question {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1a237e;
+}
+
+.elinux-icon-plus {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #00acc1;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+}
+
+.elinux-icon-plus.rotate {
+    transform: rotate(45deg);
+}
+
+.elinux-faq-inner {
+    padding: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    color: #666666;
+    line-height: 1.625;
+}
+
+/* Utility classes for icons */
+.elinux-icon-sm { width: 1rem; height: 1rem; }
+.elinux-icon-md { width: 1.5rem; height: 1.5rem; }
+.elinux-icon-xl { width: 6rem; height: 6rem; }
+.elinux-text-secondary { color: #00acc1; }
+.elinux-text-accent { color: #ff6f00; }

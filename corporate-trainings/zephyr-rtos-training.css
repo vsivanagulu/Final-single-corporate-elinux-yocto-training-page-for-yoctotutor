@@ -1,0 +1,834 @@
+
+/* Zephyr RTOS Training Specific Styles */
+
+/* Hero Section */
+.zephyr-hero {
+    position: relative;
+    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #00acc1 100%);
+    color: white;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .zephyr-hero {
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+    }
+}
+
+.zephyr-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: #1a237e;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.zephyr-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.zephyr-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+@media (min-width: 640px) {
+    .zephyr-hero-content {
+        padding: 0 1.5rem;
+    }
+}
+
+.zephyr-hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    animation: pulse-glow 3s infinite ease-in-out;
+}
+
+@media (min-width: 768px) {
+    .zephyr-hero-title {
+        font-size: 3.75rem;
+    }
+}
+
+.zephyr-hero-subtitle {
+    margin-top: 1.5rem;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+@media (min-width: 768px) {
+    .zephyr-hero-subtitle {
+        font-size: 1.25rem;
+    }
+}
+
+.zephyr-cta-container {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.zephyr-cta-btn {
+    background: linear-gradient(135deg, #ff6f00 0%, #ffa726 100%);
+    color: white;
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border-radius: 9999px;
+    font-size: 1.125rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.zephyr-cta-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.zephyr-hero-cards {
+    margin-top: 4rem;
+    max-width: 56rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    gap: 2rem;
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .zephyr-hero-cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.zephyr-info-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+.zephyr-info-card:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.zephyr-icon-wrapper {
+    flex-shrink: 0;
+    width: 4rem;
+    height: 4rem;
+    background-color: #ff6f00;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.zephyr-card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: white;
+}
+
+.zephyr-card-text {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Navigation Menu */
+.zephyr-nav-wrapper {
+    transition: all 0.3s ease;
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 40;
+    position: relative;
+}
+
+.zephyr-nav-wrapper.sticky {
+    position: fixed;
+    top: 0; /* Assuming main header height is 0 or handled elsewhere, adjust if needed */
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.zephyr-nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+}
+
+.zephyr-nav-title {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #1a237e;
+}
+
+.zephyr-nav-links {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .zephyr-nav-links {
+        display: flex;
+    }
+}
+
+.zephyr-nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.zephyr-nav-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #333333;
+    transition: color 0.3s;
+    position: relative;
+    padding-bottom: 0.25rem;
+    white-space: nowrap;
+}
+
+.zephyr-nav-link:hover {
+    color: #0d47a1;
+}
+
+.zephyr-nav-link.active {
+    color: #1a237e;
+    font-weight: 700;
+}
+
+.zephyr-nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #ff6f00;
+    border-radius: 9999px;
+}
+
+.zephyr-nav-cta {
+    background: linear-gradient(135deg, #ff6f00 0%, #ffa726 100%);
+    color: white;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    transition: all 0.3s;
+}
+
+.zephyr-nav-cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+    .zephyr-nav-cta {
+        margin-left: 1rem;
+    }
+}
+
+.zephyr-nav-mobile-btn {
+    display: block;
+    padding: 0.5rem;
+    color: #1a237e;
+}
+
+@media (min-width: 768px) {
+    .zephyr-nav-mobile-btn {
+        display: none;
+    }
+}
+
+.zephyr-hamburger {
+    width: 1.5rem;
+    height: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.zephyr-hamburger .line {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #1a237e;
+    transition: all 0.3s;
+}
+
+.zephyr-hamburger .rotate-down {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.zephyr-hamburger .fade-out {
+    opacity: 0;
+}
+
+.zephyr-hamburger .rotate-up {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Sections General */
+.zephyr-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .zephyr-section {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+}
+
+.zephyr-bg-white { background-color: white; }
+.zephyr-bg-light { background-color: #f9fafb; }
+.zephyr-bg-blue { background-color: #eff6ff; }
+
+.zephyr-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+    .zephyr-container {
+        padding: 0 1.5rem;
+    }
+}
+
+.zephyr-section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #1a237e;
+}
+
+.zephyr-grid-2 {
+    display: grid;
+    gap: 3rem;
+}
+
+@media (min-width: 768px) {
+    .zephyr-grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.zephyr-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: #666666;
+    font-size: 1.125rem;
+    line-height: 1.75;
+}
+
+/* Program Details */
+.zephyr-details-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f3f4f6;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+
+.zephyr-details-card:hover {
+    border-color: #00acc1;
+}
+
+.zephyr-details-card.accent-border:hover {
+    border-color: #ff6f00;
+}
+
+.zephyr-details-icon-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    opacity: 0.1;
+    color: #1a237e;
+}
+
+.zephyr-details-card.accent-border .zephyr-details-icon-bg {
+    color: #ff6f00;
+}
+
+.zephyr-details-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a237e;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.zephyr-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.zephyr-details-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.zephyr-details-bullet {
+    margin-top: 0.25rem;
+    background-color: #dbeafe;
+    padding: 0.25rem;
+    border-radius: 9999px;
+    color: #1a237e;
+}
+
+.zephyr-prereq-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background-color: #fff7ed;
+    border-radius: 0.5rem;
+    color: #1f2937;
+}
+
+.zephyr-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: #ff6f00;
+    flex-shrink: 0;
+}
+
+/* Highlights Grid */
+.zephyr-highlights-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .zephyr-highlights-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.zephyr-highlight-card {
+    background-color: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border-left: 4px solid #00acc1;
+    transition: all 0.3s ease;
+}
+
+.zephyr-highlight-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: translateX(0.25rem);
+}
+
+.zephyr-highlight-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a237e;
+    margin-bottom: 0.5rem;
+}
+
+.zephyr-highlight-desc {
+    color: #666666;
+}
+
+/* Syllabus Timeline */
+.zephyr-timeline-container {
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.zephyr-timeline-item {
+    position: relative;
+    padding-left: 3rem;
+    padding-bottom: 2rem;
+}
+
+.zephyr-timeline-line {
+    position: absolute;
+    left: 1.125rem;
+    top: 1rem;
+    bottom: 0;
+    width: 2px;
+    background-color: #00acc1;
+}
+
+.zephyr-timeline-marker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #00acc1 100%);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.zephyr-syllabus-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+
+.zephyr-syllabus-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.zephyr-syllabus-btn {
+    width: 100%;
+    padding: 1.5rem;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.zephyr-syllabus-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a237e;
+    flex: 1;
+}
+
+.zephyr-syllabus-meta {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.zephyr-badge-blue {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #dbeafe; /* bg-blue-100 */
+    color: #0d47a1; /* text-primary */
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+}
+
+.zephyr-chevron {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #00acc1;
+    transition: transform 0.3s;
+}
+
+.zephyr-chevron.rotate {
+    transform: rotate(180deg);
+}
+
+.zephyr-accordion-grid {
+    display: grid;
+    transition: grid-template-rows 0.25s ease-in-out;
+}
+
+.zephyr-accordion-grid.open {
+    grid-template-rows: 1fr;
+}
+
+.zephyr-accordion-grid.closed {
+    grid-template-rows: 0fr;
+}
+
+.zephyr-accordion-inner {
+    overflow: hidden;
+}
+
+.zephyr-accordion-content {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    transition-delay: 100ms;
+}
+
+.zephyr-accordion-content.open {
+    opacity: 1;
+}
+
+.zephyr-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.zephyr-badge-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #00acc1;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+}
+
+.zephyr-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.zephyr-list-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.zephyr-list-bullet {
+    color: #00acc1;
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+.zephyr-list-text {
+    color: #666666;
+}
+
+/* Pricing */
+.zephyr-pricing-grid {
+    max-width: 56rem;
+    margin: 0 auto;
+    display: grid;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .zephyr-pricing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.zephyr-pricing-card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e5e7eb;
+}
+
+.zephyr-pricing-card:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: translateY(-0.5rem);
+}
+
+.zephyr-pricing-card.highlight {
+    border-color: #00acc1;
+}
+
+.zephyr-pricing-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0d47a1;
+    margin-bottom: 1rem;
+}
+
+.zephyr-pricing-amount-box {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.zephyr-price-tag {
+    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #00acc1 100%);
+    color: white;
+    font-weight: 700;
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.zephyr-pricing-amount {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #ff6f00;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.zephyr-pricing-features {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+    list-style: none;
+    padding: 0;
+}
+
+.zephyr-pricing-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.zephyr-icon-check {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #00acc1;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+.zephyr-pricing-text {
+    color: #333333;
+}
+
+.zephyr-pricing-cta-mt {
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* FAQ */
+.zephyr-faq-stack {
+    max-width: 48rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.zephyr-faq-item {
+    background-color: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.zephyr-faq-item:hover {
+    border-color: #00acc1;
+}
+
+.zephyr-faq-btn {
+    width: 100%;
+    padding: 1.5rem;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transition: background-color 0.2s;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.zephyr-faq-btn:hover {
+    background-color: #f9fafb;
+}
+
+.zephyr-faq-question {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1a237e;
+}
+
+.zephyr-icon-plus {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #00acc1;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+}
+
+.zephyr-icon-plus.rotate {
+    transform: rotate(45deg);
+}
+
+.zephyr-faq-inner {
+    padding: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    color: #666666;
+    line-height: 1.625;
+}
+
+/* Icon Utilities */
+.zephyr-icon-sm { width: 1rem; height: 1rem; }
+.zephyr-icon-md { width: 1.5rem; height: 1.5rem; }
+.zephyr-icon-lg { width: 2rem; height: 2rem; }
+.zephyr-icon-xl { width: 6rem; height: 6rem; }
+.zephyr-text-secondary { color: #00acc1; }
+.zephyr-text-accent { color: #ff6f00; }
