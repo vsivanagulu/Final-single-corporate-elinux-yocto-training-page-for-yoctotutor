@@ -137,6 +137,7 @@
     margin-right: auto;
     font-size: 1.125rem;
     color: rgba(255, 255, 255, 0.9);
+    line-height: 1.625;
 }
 
 @media (min-width: 768px) {
@@ -210,6 +211,11 @@
     align-items: center;
     justify-content: center;
     color: white;
+}
+
+.elinux-icon-wrapper svg {
+    width: 2rem;
+    height: 2rem;
 }
 
 .elinux-card-title {
@@ -413,6 +419,11 @@
 .elinux-highlight-card:hover {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     transform: translateX(0.25rem);
+}
+
+.elinux-highlight-card > div:first-child svg {
+    width: 2rem;
+    height: 2rem;
 }
 
 .elinux-highlight-title {

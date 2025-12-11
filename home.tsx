@@ -267,20 +267,20 @@ const FAQSection: React.FC = () => {
             <div className="section-container">
                 <SectionTitle title="Frequently Asked Questions" subtitle="Common queries about our training programs" />
                 
-                <div className="max-w-3xl mx-auto mt-8 flex flex-col gap-4">
+                <div className="home-faq-stack">
                     {faqData.map((item, index) => (
-                        <div key={index} className="border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 hover:border-secondary">
+                        <div key={index} className="home-faq-item">
                             <button 
-                                className="w-full text-left p-6 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors"
+                                className="home-faq-btn"
                                 onClick={() => toggleAccordion(index)}
                             >
-                                <span className="font-display font-semibold text-lg text-primary-dark">{item.question}</span>
-                                <PlusIcon className={`w-6 h-6 text-secondary transform transition-transform duration-300 ${openIndex === index ? 'rotate-45' : ''}`} />
+                                <span className="home-faq-question">{item.question}</span>
+                                <PlusIcon className={`home-faq-icon ${openIndex === index ? 'rotate' : ''}`} />
                             </button>
                             <div 
-                                className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+                                className={`home-faq-content ${openIndex === index ? 'open' : 'closed'}`}
                             >
-                                <div className="p-6 pt-0 text-gray-600 border-t border-gray-100 bg-gray-50">
+                                <div className="home-faq-inner">
                                     {item.answer}
                                 </div>
                             </div>
@@ -410,30 +410,56 @@ const App: React.FC = () => {
     const [currentPage, setCurrentPage] = useState('home');
     const [currentCourseId, setCurrentCourseId] = useState('');
 
-    const handleNavigate = (page: string, courseId: string = '') => {
-        setCurrentPage(page);
-        setCurrentCourseId(courseId);
-        window.scrollTo(0, 0);
-    };
-
+    // Listener for hash changes to support deep linking and browser navigation
     useEffect(() => {
-        // Simple hash routing for pages that aren't specific courses
         const handleHashChange = () => {
-            const hash = window.location.hash;
-            if (hash === '#trainings') {
-                setCurrentPage('trainings');
-                window.scrollTo(0, 0);
-            } else if (hash === '' || hash === '#' || hash.startsWith('#home')) {
+            // Remove the '#' character
+            const hash = window.location.hash.replace('#', '');
+            
+            // Default to home if empty or explicitly home
+            if (!hash || hash === 'home' || hash === '/') {
                 setCurrentPage('home');
-            }
+                setCurrentCourseId('');
+                window.scrollTo(0, 0);
+            } else if (hash === 'trainings') {
+                setCurrentPage('trainings');
+                setCurrentCourseId('');
+                window.scrollTo(0, 0);
+            } else if (hash.startsWith('training/')) {
+                const courseId = hash.split('/')[1];
+                if (coursesData[courseId]) {
+                    setCurrentPage('training');
+                    setCurrentCourseId(courseId);
+                    window.scrollTo(0, 0);
+                } else {
+                    // Fallback for invalid course ID
+                    setCurrentPage('home');
+                    window.scrollTo(0, 0);
+                }
+            } 
+            // If the hash is an internal link (e.g. #contact, #about), do not change the page state.
+            // This allows scrolling to sections within the current page to work naturally.
         };
 
+        // Listen for changes
         window.addEventListener('hashchange', handleHashChange);
-        // Check initial hash
+        
+        // Handle initial load
         handleHashChange();
 
         return () => window.removeEventListener('hashchange', handleHashChange);
     }, []);
+
+    const handleNavigate = (page: string, courseId: string = '') => {
+        // Update the URL hash which triggers the listener to update state
+        if (page === 'home') {
+            window.location.hash = 'home';
+        } else if (page === 'trainings') {
+            window.location.hash = 'trainings';
+        } else if (page === 'training' && courseId) {
+            window.location.hash = `training/${courseId}`;
+        }
+    };
 
     if (currentPage === 'trainings') {
         return <TrainingsPage onNavigate={handleNavigate} />;

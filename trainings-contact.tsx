@@ -1,4 +1,6 @@
+
 import React, { useState } from 'react';
+import './trainings-contact.css';
 
 // Icons
 const BuildingOfficeIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
@@ -29,16 +31,6 @@ const CheckCircleIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
 );
 
-const SectionTitle: React.FC<{ title: string; subtitle: string; isWhiteText?: boolean, subtitleColorClass?: string }> = ({ title, subtitle, isWhiteText = false, subtitleColorClass }) => (
-    <div className="text-center mb-8 md:mb-12">
-      <h2 className={`font-display text-3xl md:text-4xl font-bold ${isWhiteText ? 'text-white' : 'text-primary-dark'} relative inline-block`}>
-        {title}
-        <span className="absolute -bottom-2.5 left-1/2 -translate-x-1.2 w-20 h-1 bg-gradient-accent rounded-full"></span>
-      </h2>
-      <p className={`mt-6 text-lg ${subtitleColorClass ? subtitleColorClass : (isWhiteText ? 'text-white/90' : 'text-light-text')}`}>{subtitle}</p>
-    </div>
-);
-
 interface TrainingsContactProps {
     title?: string;
     subtitle?: string;
@@ -49,9 +41,9 @@ const TrainingsContact: React.FC<TrainingsContactProps> = ({
     subtitle = "Let's discuss how we can help with your training needs" 
 }) => {
     const contactInfo = [
-        { icon: <BuildingOfficeIcon className="w-8 h-8"/>, label: 'Company', value: 'YoctoTutor' },
-        { icon: <EnvelopeIcon className="w-8 h-8"/>, label: 'Email', value: 'siva.v@yoctotutor.com', href: 'mailto:siva.v@yoctotutor.com' },
-        { icon: <PhoneIcon className="w-8 h-8"/>, label: 'Phone', value: '+91 9966635319', href: 'tel:+919966635319' },
+        { icon: <BuildingOfficeIcon />, label: 'Company', value: 'YoctoTutor' },
+        { icon: <EnvelopeIcon />, label: 'Email', value: 'siva.v@yoctotutor.com', href: 'mailto:siva.v@yoctotutor.com' },
+        { icon: <PhoneIcon />, label: 'Phone', value: '+91 9966635319', href: 'tel:+919966635319' },
     ];
     const [formSubmitted, setFormSubmitted] = useState(false);
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -62,23 +54,81 @@ const TrainingsContact: React.FC<TrainingsContactProps> = ({
         setTimeout(() => setFormSubmitted(false), 5000);
     };
     return (
-        <section id="contact" className="py-12 md:py-20 bg-gradient-primary text-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <SectionTitle title={title} subtitle={subtitle} isWhiteText />
-                <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto items-start">
-                    <div className="space-y-8">
-                        <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl"><h3 className="font-display text-2xl font-semibold mb-6">Contact Information</h3><div className="space-y-6">{contactInfo.map((item, index) => (<div key={index} className="flex items-center gap-4"><div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center flex-shrink-0">{item.icon}</div><div><h4 className="text-sm opacity-90">{item.label}</h4>{item.href ? (<a href={item.href} className="text-lg font-medium hover:underline">{item.value}</a>) : (<p className="text-lg font-medium">{item.value}</p>)}</div></div>))}</div></div>
-                        <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl"><h3 className="font-display text-2xl font-semibold mb-6">Connect on WhatsApp</h3><div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left"><img src="https://yoctotutor.com/images/Trainings-siva/qr-whatsapp.jpeg" alt="WhatsApp QR Code for Embedded Linux Training" className="w-32 h-32 rounded-lg object-cover flex-shrink-0 border-2 border-white/20" loading="lazy" /><div><p className="mb-4 text-white/90">Scan to start a chat instantly, or click the button below.</p><a href="https://wa.me/message/55NF67U3BP3WN1" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 text-white font-semibold py-2 px-5 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:bg-green-600"><WhatsAppIcon className="w-6 h-6" /> Chat Now</a></div></div></div>
+        <section id="contact" className="tc-section">
+            <div className="tc-container">
+                <div className="tc-header">
+                    <h2 className="tc-title">
+                        {title}
+                        <span className="tc-title-underline"></span>
+                    </h2>
+                    <p className="tc-subtitle">{subtitle}</p>
+                </div>
+                
+                <div className="tc-grid">
+                    <div className="tc-info-col">
+                        <div className="tc-info-card">
+                            <h3 className="tc-card-title">Contact Information</h3>
+                            <div className="tc-contact-list">
+                                {contactInfo.map((item, index) => (
+                                    <div key={index} className="tc-contact-item">
+                                        <div className="tc-icon-circle">
+                                            {item.icon}
+                                        </div>
+                                        <div>
+                                            <h4 className="tc-label">{item.label}</h4>
+                                            {item.href ? (
+                                                <a href={item.href} className="tc-value tc-link">{item.value}</a>
+                                            ) : (
+                                                <p className="tc-value">{item.value}</p>
+                                            )}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        
+                        <div className="tc-info-card">
+                            <h3 className="tc-card-title">Connect on WhatsApp</h3>
+                            <div className="tc-whatsapp-flex">
+                                <img src="https://yoctotutor.com/images/Trainings-siva/qr-whatsapp.jpeg" alt="WhatsApp QR" className="tc-qr-img" loading="lazy" />
+                                <div>
+                                    <p className="mb-4" style={{opacity: 0.9}}>Scan to start a chat instantly, or click the button below.</p>
+                                    <a href="https://wa.me/message/55NF67U3BP3WN1" target="_blank" rel="noopener noreferrer" className="tc-whatsapp-btn">
+                                        <WhatsAppIcon /> Chat Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className="bg-white p-8 rounded-xl shadow-2xl">
+                    
+                    <div className="tc-form-card">
                         <form onSubmit={handleSubmit} className="space-y-6">
-                            <div><label className="block text-sm font-medium text-dark-text mb-2">Full Name <span className="text-accent">*</span></label><input type="text" placeholder="Your full name" required className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg text-dark-text focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition" /></div>
-                            <div><label className="block text-sm font-medium text-dark-text mb-2">Email <span className="text-accent">*</span></label><input type="email" placeholder="Your email" required className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg text-dark-text focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition" /></div>
-                            <div><label className="block text-sm font-medium text-dark-text mb-2">Phone <span className="text-accent">*</span></label><input type="tel" placeholder="Your phone" required className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg text-dark-text focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition" /></div>
-                            <div><label className="block text-sm font-medium text-dark-text mb-2">Organization</label><input type="text" placeholder="Company or college" className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg text-dark-text focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition" /></div>
-                            <button type="submit" className="w-full flex items-center justify-center gap-2 bg-gradient-accent text-white font-semibold py-3 px-6 rounded-lg text-lg shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"><PaperAirplaneIcon className="w-5 h-5" /> Request a Quote</button>
+                            <div className="tc-form-group">
+                                <label className="tc-label-dark">Full Name <span className="tc-text-accent">*</span></label>
+                                <input type="text" placeholder="Your full name" required className="tc-input" />
+                            </div>
+                            <div className="tc-form-group">
+                                <label className="tc-label-dark">Email <span className="tc-text-accent">*</span></label>
+                                <input type="email" placeholder="Your email" required className="tc-input" />
+                            </div>
+                            <div className="tc-form-group">
+                                <label className="tc-label-dark">Phone <span className="tc-text-accent">*</span></label>
+                                <input type="tel" placeholder="Your phone" required className="tc-input" />
+                            </div>
+                            <div className="tc-form-group">
+                                <label className="tc-label-dark">Organization</label>
+                                <input type="text" placeholder="Company or college" className="tc-input" />
+                            </div>
+                            <button type="submit" className="tc-submit-btn">
+                                <PaperAirplaneIcon /> Request a Quote
+                            </button>
                         </form>
-                        {formSubmitted && (<div className="mt-4 flex items-center gap-3 bg-secondary text-white p-4 rounded-lg"><CheckCircleIcon className="w-6 h-6" /><span>Thank you! We will contact you shortly.</span></div>)}
+                        {formSubmitted && (
+                            <div className="tc-success">
+                                <CheckCircleIcon />
+                                <span>Thank you! We will contact you shortly.</span>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

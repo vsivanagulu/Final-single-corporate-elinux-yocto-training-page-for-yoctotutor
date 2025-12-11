@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import TrainingsContact from '../trainings-contact';
 import './firmware-to-linux-migration.css';
 
 // --- Common Icons ---
@@ -20,7 +21,7 @@ const CalendarDaysIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 
 const BuildingOffice2Icon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6h1.5m-1.5 3h1.5m-1.5 3h1.5m-1.5 3h1.5m9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6h1.5m-1.5 3h1.5m-1.5 3h1.5m9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
     </svg>
 );
 
@@ -68,7 +69,7 @@ const PlusIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 );
 
 const BuildingOfficeIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6h1.5m-1.5 3h1.5m-1.5 3h1.5m-1.5 3h1.5m9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" /></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m-1.5 3h1.5m9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" /></svg>
 );
 
 const EnvelopeIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
@@ -725,57 +726,6 @@ const FirmwareToLinuxMigration = () => {
         );
     };
 
-    const Contact: React.FC = () => {
-        const contactInfo = [
-            { icon: <BuildingOfficeIcon className="f2l-icon-md text-white"/>, label: 'Company', value: 'YoctoTutor' },
-            { icon: <EnvelopeIcon className="f2l-icon-md text-white"/>, label: 'Email', value: 'siva.v@yoctotutor.com', href: 'mailto:siva.v@yoctotutor.com' },
-            { icon: <PhoneIcon className="f2l-icon-md text-white"/>, label: 'Phone', value: '+91 9966635319', href: 'tel:+919966635319' },
-        ];
-        const [formSubmitted, setFormSubmitted] = useState(false);
-        const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-            e.preventDefault();
-            setFormSubmitted(true);
-            const form = e.target as HTMLFormElement;
-            form.reset();
-            setTimeout(() => setFormSubmitted(false), 5000);
-        };
-        return (
-            <section id="contact" className="f2l-contact-section">
-                <div className="f2l-container">
-                    <SectionTitle title="Apply for the Program" subtitle="Limited seats available for the next batch" isWhiteText />
-                    <div className="f2l-contact-grid">
-                        <div className="f2l-contact-info-col">
-                            <div className="f2l-contact-info-box">
-                                <h3 className="f2l-contact-heading">Contact Information</h3>
-                                <div className="f2l-contact-list">{contactInfo.map((item, index) => (<div key={index} className="f2l-contact-item"><div className="f2l-contact-icon">{item.icon}</div><div><h4 className="f2l-contact-label">{item.label}</h4>{item.href ? (<a href={item.href} className="f2l-contact-value f2l-contact-link">{item.value}</a>) : (<p className="f2l-contact-value">{item.value}</p>)}</div></div>))}</div>
-                            </div>
-                            <div className="f2l-whatsapp-box">
-                                <h3 className="f2l-contact-heading">Connect on WhatsApp</h3>
-                                <div className="f2l-whatsapp-flex">
-                                    <img src="https://i.ibb.co/68gCj3J/whatsapp-qr.png" alt="WhatsApp QR Code" className="f2l-qr-img" loading="lazy" />
-                                    <div>
-                                        <p className="mb-4">Scan to start a chat instantly, or click the button below.</p>
-                                        <a href="https://wa.me/message/55NF67U3BP3WN1" target="_blank" rel="noopener noreferrer" className="f2l-whatsapp-btn"><WhatsAppIcon className="w-6 h-6" /> Chat Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="f2l-form-card">
-                            <form onSubmit={handleSubmit}>
-                                <div className="f2l-form-group"><label className="f2l-form-label">Full Name <span className="f2l-text-red">*</span></label><input type="text" placeholder="Your full name" required className="f2l-form-input" /></div>
-                                <div className="f2l-form-group"><label className="f2l-form-label">Email <span className="f2l-text-red">*</span></label><input type="email" placeholder="Your email" required className="f2l-form-input" /></div>
-                                <div className="f2l-form-group"><label className="f2l-form-label">Phone <span className="f2l-text-red">*</span></label><input type="tel" placeholder="Your phone" required className="f2l-form-input" /></div>
-                                <div className="f2l-form-group"><label className="f2l-form-label">Current Role / Experience</label><input type="text" placeholder="e.g. 2 Years in Firmware" className="f2l-form-input" /></div>
-                                <button type="submit" className="f2l-form-btn"><PaperAirplaneIcon className="w-5 h-5" /> Request a Callback</button>
-                            </form>
-                            {formSubmitted && (<div className="f2l-success-msg"><CheckCircleIcon className="w-6 h-6" /><span>Thank you! We will contact you shortly.</span></div>)}
-                        </div>
-                    </div>
-                </div>
-            </section>
-        );
-    };
-
     return (
         <>
             <Hero />
@@ -787,7 +737,7 @@ const FirmwareToLinuxMigration = () => {
             <Pricing />
             <Testimonials /> 
             <FAQ />
-            <Contact />
+            <TrainingsContact title="Apply for Job Assistance" subtitle="Ready to switch from Firmware to Embedded Linux? Reach out to us." />
         </>
     );
 };

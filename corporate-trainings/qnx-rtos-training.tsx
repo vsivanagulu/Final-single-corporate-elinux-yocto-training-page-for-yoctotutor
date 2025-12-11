@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import TrainingsContact from '../trainings-contact';
 import './qnx-rtos-training.css';
 
 // --- Common Icons ---
@@ -20,7 +21,7 @@ const CalendarDaysIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 
 const BuildingOffice2Icon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6h1.5m-1.5 3h1.5m-1.5 3h1.5m9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6h1.5m-1.5 3h1.5m-1.5 3h1.5m-1.5 3h1.5m9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
     </svg>
 );
 
@@ -36,7 +37,7 @@ const RocketLaunchIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 );
 
 const Cog6ToothIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h3m-3 12h3m-7.5-3.75h12M4.5 6.75h15m-15 9h15m-6-15h.008v.008h-.008V6.75Zm.008 3h.008v.008h-.008v-.008Zm.008 3h.008v.008h-.008v-.008Zm.008 3h.008v.008h-.008v-.008Zm-3-3h.008v.008h-.008v-.008Zm-3 3h.008v.008H7.5v-.008Zm-3-3h.008v.008H4.5v-.008Zm0-3h.008v.008H4.5v-.008Zm3 0h.008v.008H7.5v-.008Zm3 0h.008v.008h-.008v-.008Zm3-3h.008v.008h-.008v-.008Zm-6 0h.008v.008h-.008v-.008Z" /></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h3m-3 12h3m-7.5-3.75h12M4.5 6.75h15m-15 9h15m-6-15h.008v.008h-.008V6.75Zm.008 3h.008v.008h-.008v-.008Zm.008 3h.008v.008h-.008v-.008Zm-3-3h.008v.008h-.008v-.008Zm-3 3h.008v.008H7.5v-.008Zm-3-3h.008v.008H4.5v-.008Zm0-3h.008v.008H4.5v-.008Zm3 0h.008v.008H7.5v-.008Zm3 0h.008v.008h-.008v-.008Zm3-3h.008v.008h-.008v-.008Zm-6 0h.008v.008h-.008v-.008Z" /></svg>
 );
 
 const CubeIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
@@ -68,7 +69,7 @@ const PlusIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 );
 
 const BuildingOfficeIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m-1.5 3h1.5m-1.5 3h1.5m9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" /></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m-1.5 3h1.5m9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" /></svg>
 );
 
 const EnvelopeIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
@@ -606,57 +607,6 @@ const QNXRTOSTraining = () => {
         );
     };
 
-    const Contact: React.FC = () => {
-        const contactInfo = [
-            { icon: <BuildingOffice2Icon className="qnx-icon-md text-white"/>, label: 'Company', value: 'YoctoTutor' },
-            { icon: <div className="w-6 h-6"><svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg></div>, label: 'Email', value: 'siva.v@yoctotutor.com', href: 'mailto:siva.v@yoctotutor.com' },
-            { icon: <div className="w-6 h-6"><svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.211-.99-.554-1.348l-5.12-5.12a1.125 1.125 0 0 0-1.59 0L9 13.5m0 0h-2.25a2.25 2.25 0 0 1-2.25-2.25V6.75" /></svg></div>, label: 'Phone', value: '+91 9966635319', href: 'tel:+919966635319' },
-        ];
-        const [formSubmitted, setFormSubmitted] = useState(false);
-        const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-            e.preventDefault();
-            setFormSubmitted(true);
-            const form = e.target as HTMLFormElement;
-            form.reset();
-            setTimeout(() => setFormSubmitted(false), 5000);
-        };
-        return (
-            <section id="contact" className="qnx-contact-section">
-                <div className="qnx-container">
-                    <SectionTitle title="Connect With Us" subtitle="Accelerate your safety-critical development with QNX" isWhiteText />
-                    <div className="qnx-contact-grid">
-                        <div className="space-y-8">
-                            <div className="qnx-contact-info-box">
-                                <h3 className="qnx-contact-heading">Contact Information</h3>
-                                <div className="qnx-contact-list">{contactInfo.map((item, index) => (<div key={index} className="qnx-contact-item"><div className="qnx-contact-icon">{item.icon}</div><div><h4 className="qnx-contact-label">{item.label}</h4>{item.href ? (<a href={item.href} className="qnx-contact-value qnx-contact-link">{item.value}</a>) : (<p className="qnx-contact-value">{item.value}</p>)}</div></div>))}</div>
-                            </div>
-                            <div className="qnx-whatsapp-box">
-                                <h3 className="qnx-contact-heading">Connect on WhatsApp</h3>
-                                <div className="qnx-whatsapp-flex">
-                                    <img src="https://i.ibb.co/68gCj3J/whatsapp-qr.png" alt="WhatsApp QR Code for Embedded Linux Training" className="qnx-qr-img" loading="lazy" />
-                                    <div>
-                                        <p className="mb-4 text-white/90">Scan to start a chat instantly, or click the button below.</p>
-                                        <a href="https://wa.me/message/55NF67U3BP3WN1" target="_blank" rel="noopener noreferrer" className="qnx-whatsapp-btn"><WhatsAppIcon className="w-6 h-6" /> Chat Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="qnx-form-card">
-                            <form onSubmit={handleSubmit} className="space-y-6">
-                                <div className="qnx-form-group"><label className="qnx-form-label">Full Name <span className="qnx-text-red">*</span></label><input type="text" placeholder="Your full name" required className="qnx-form-input" /></div>
-                                <div className="qnx-form-group"><label className="qnx-form-label">Email <span className="qnx-text-red">*</span></label><input type="email" placeholder="Your email" required className="qnx-form-input" /></div>
-                                <div className="qnx-form-group"><label className="qnx-form-label">Phone <span className="qnx-text-red">*</span></label><input type="tel" placeholder="Your phone" required className="qnx-form-input" /></div>
-                                <div className="qnx-form-group"><label className="qnx-form-label">Organization</label><input type="text" placeholder="Company or college" className="qnx-form-input" /></div>
-                                <button type="submit" className="qnx-form-btn"><div className="w-5 h-5"><svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg></div> Request a Quote</button>
-                            </form>
-                            {formSubmitted && (<div className="qnx-success-msg"><CheckCircleIcon className="w-6 h-6" /><span>Thank you! We will contact you shortly.</span></div>)}
-                        </div>
-                    </div>
-                </div>
-            </section>
-        );
-    };
-
     return (
         <>
             <Hero />
@@ -667,7 +617,7 @@ const QNXRTOSTraining = () => {
             <Pricing />
             <Testimonials />
             <FAQ />
-            <Contact />
+            <TrainingsContact title="Request QNX Training Quote" subtitle="Contact us for custom corporate batches and pricing" />
         </>
     );
 };

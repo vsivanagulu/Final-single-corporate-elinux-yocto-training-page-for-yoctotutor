@@ -332,6 +332,11 @@
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
+.adyocto-icon-wrapper svg {
+    width: 2rem;
+    height: 2rem;
+}
+
 .adyocto-card-title {
     font-size: 1.125rem;
     font-weight: 600;
@@ -533,6 +538,11 @@
 .adyocto-highlight-card:hover {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     transform: translateX(0.25rem);
+}
+
+.adyocto-highlight-card > div:first-child svg {
+    width: 2rem;
+    height: 2rem;
 }
 
 .adyocto-highlight-title {

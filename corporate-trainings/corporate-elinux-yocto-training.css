@@ -226,6 +226,11 @@
     color: white;
 }
 
+.corp-bsp-icon-wrapper svg {
+    width: 2rem;
+    height: 2rem;
+}
+
 .corp-bsp-card-title {
     font-size: 1.125rem;
     font-weight: 600;
@@ -315,6 +320,12 @@
 .corp-bsp-highlight-card:hover {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     transform: translateX(0.25rem);
+}
+
+/* Explicit SVG sizing for highlight cards */
+.corp-bsp-highlight-card > div:first-child svg {
+    width: 2rem;
+    height: 2rem;
 }
 
 .corp-bsp-highlight-title {
@@ -516,9 +527,9 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: #dbeafe;
-    color: #0d47a1;
-    font-size: 0.875rem;
+    background-color: #dbeafe; /* bg-blue-100 */
+    color: #0d47a1; /* text-primary */
+    font-size: 0.875rem; /* text-sm */
     font-weight: 600;
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;

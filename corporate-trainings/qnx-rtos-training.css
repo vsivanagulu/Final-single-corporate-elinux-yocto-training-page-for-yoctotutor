@@ -221,6 +221,11 @@
     color: white;
 }
 
+.qnx-icon-wrapper svg {
+    width: 2rem;
+    height: 2rem;
+}
+
 .qnx-card-title {
     font-size: 1.125rem;
     font-weight: 600;
@@ -461,6 +466,11 @@
 .qnx-highlight-card:hover {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     transform: translateX(0.25rem);
+}
+
+.qnx-highlight-card > div:first-child svg {
+    width: 2rem;
+    height: 2rem;
 }
 
 .qnx-highlight-title {

@@ -498,7 +498,7 @@ const CorporateELinuxYoctoTraining = () => {
             <Pricing />
             <Testimonials />
             <FAQ />
-            <TrainingsContact subtitle="Let's discuss bringing up your custom hardware with Yocto and Linux" />
+            <TrainingsContact subtitle="Request a corporate quote for your team" />
         </>
     );
 };
